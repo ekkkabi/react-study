@@ -1,2 +1,2 @@
 # study_React
-리액트 공부
+React study and practice
