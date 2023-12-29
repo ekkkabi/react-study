@@ -1,0 +1,17 @@
+* {
+  text-align: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: red;
+  border-radius: 45px;
+  margin: 30px;
+  padding: 15px;
+  width: 55%;
+}
+
+.photo {
+  border-radius: 45px;
+  box-shadow: 3px 5px 10px;
+}
