@@ -3,15 +3,29 @@
   justify-content: center;
 }
 
+.contents {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 20px;
+}
+
 .container {
   background-color: red;
   border-radius: 45px;
-  margin: 30px;
   padding: 15px;
-  width: 55%;
+  width: 90%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .photo {
   border-radius: 45px;
   box-shadow: 3px 5px 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.two {
+  display: none;
 }

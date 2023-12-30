@@ -170,7 +170,7 @@ const MusicLst = [
 
 function Home() {
   return (
-    <div>
+    <div className="contents">
       {MusicLst.map((song) => (
         <div className="container">
           <div key={song.id} className="s-one">
