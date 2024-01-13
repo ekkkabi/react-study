@@ -23,13 +23,6 @@
       "day": 1,
       "eng": "book",
       "kor": "책",
-      "isDone": true
-    },
-    {
-      "id": "5",
-      "day": 3,
-      "eng": "school",
-      "kor": "학교",
       "isDone": false
     },
     {
