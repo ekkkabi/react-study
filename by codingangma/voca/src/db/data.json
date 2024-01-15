@@ -15,6 +15,10 @@
     {
       "id": "4",
       "day": 4
+    },
+    {
+      "id": "2ceb",
+      "day": 5
     }
   ],
   "words": [
@@ -72,6 +76,34 @@
       "day": 3,
       "eng": "apple",
       "kor": "사과",
+      "isDone": false
+    },
+    {
+      "id": "4ee3",
+      "day": "1",
+      "eng": "carrot",
+      "kor": "당근",
+      "isDOne": false
+    },
+    {
+      "id": "e86e",
+      "day": "2",
+      "eng": "home",
+      "kor": "집",
+      "isDone": false
+    },
+    {
+      "id": "4b5e",
+      "day": "5",
+      "eng": "soccer",
+      "kor": "축구",
+      "isDone": false
+    },
+    {
+      "id": "14c7",
+      "day": "5",
+      "eng": "rabbit",
+      "kor": "토끼",
       "isDone": false
     }
   ]
