@@ -27,7 +27,9 @@ const Music = () => {
       {selectedMusic ? (
         <>
           <h1>{selectedMusic.day}</h1>
-          <h2>{selectedMusic.title}</h2>
+          <h2>
+            {selectedMusic.title} - {selectedMusic.artist}
+          </h2>
           {lyrics.map(
             (detail) =>
               detail.id == selectedMusic.id && (
