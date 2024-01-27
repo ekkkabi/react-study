@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
 
@@ -50,6 +50,7 @@ const Text = styled.div<{ done: boolean }>`
   flex: 1;
   font-size: 21px;
   color: #495057;
+  text-decoration: ${(props) => (props.done ? "line-through" : "none")};
   ${(props) =>
     props.done &&
     css`
@@ -58,18 +59,22 @@ const Text = styled.div<{ done: boolean }>`
 `;
 
 interface TodoItemProps {
-  id?: number;
+  id: number;
   done: boolean;
   text: string;
+  onRemove: (id: number) => void;
+  onChecked: (id: number) => void;
 }
 
-const TodoItem = ({ id, done, text }: TodoItemProps) => {
+const TodoItem = ({ id, done, text, onRemove, onChecked }: TodoItemProps) => {
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done} onClick={() => onChecked(id)}>
+        {done && <MdDone />}
+      </CheckCircle>
       <Text done={done}>{text}</Text>
       <Remove>
-        <MdDelete />
+        <MdDelete onClick={() => onRemove(id)} />
       </Remove>
     </TodoItemBlock>
   );

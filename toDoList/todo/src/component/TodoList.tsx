@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
+
+interface TodoListProps {
+  todos: {
+    id: number;
+    text: string;
+    done: boolean;
+  }[];
+  onRemove: (id: number) => void;
+  onChecked: (id: number) => void;
+}
 
 const TodoListBlock = styled.div`
   flex: 1;
@@ -9,13 +19,27 @@ const TodoListBlock = styled.div`
   overflow-y: auto;
 `;
 
-const TodoList = () => {
+const TodoList: React.FC<TodoListProps> = ({
+  todos: initialTodos,
+  onRemove,
+  onChecked,
+}) => {
+  const [todos, setTodos] = useState(initialTodos);
+  useEffect(() => {
+    setTodos(initialTodos);
+  }, [initialTodos]);
   return (
     <TodoListBlock>
-      <TodoItem text="프로젝트 생성하기" done={true} />
-      <TodoItem text="컴포넌트 스타일링" done={false} />
-      <TodoItem text="Context 생성" done={true} />
-      <TodoItem text="기능 구현" done={true} />
+      {todos.map((todo) => (
+        <TodoItem
+          text={todo.text}
+          key={todo.id}
+          done={todo.done}
+          id={todo.id}
+          onRemove={onRemove}
+          onChecked={onChecked}
+        />
+      ))}
     </TodoListBlock>
   );
 };

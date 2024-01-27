@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState, ChangeEvent } from "react";
 import styled, { css } from "styled-components";
 import { MdAdd } from "react-icons/md";
 
@@ -75,15 +75,35 @@ const Input = styled.input`
   box-sizing: border-box;
 `;
 
-const TodoCreate = () => {
+interface TodoCreateProps {
+  onInsert: (text: string) => void;
+}
+
+const TodoCreate = ({ onInsert }: TodoCreateProps) => {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
+
+  const [value, setValue] = useState("");
+  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  }, []);
+  const onSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      onInsert(value);
+      setValue("");
+      setOpen(false);
+      e.preventDefault();
+    },
+    [onInsert, value]
+  );
+
   return (
     <>
       {open && (
         <InsertFormPositioner>
-          <InsertForm>
+          <InsertForm onSubmit={onSubmit}>
             <Input
+              onChange={onChange}
               autoFocus
               placeholder="할 일을 입력 후, Enter 을 누르세요."
             />

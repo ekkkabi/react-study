@@ -25,12 +25,22 @@ const TodoHeadBlock = styled.div`
   }
 `;
 
-const TodoHead: React.FC = () => {
+interface TodoHeadProps {
+  todos: {
+    id: number;
+    text: string;
+    done: boolean;
+  }[];
+}
+
+const TodoHead: React.FC<TodoHeadProps> = ({ todos }) => {
+  const remainingTasks = todos.filter((todo) => !todo.done).length;
+
   return (
     <TodoHeadBlock>
       <h1>2024년 1월 25일</h1>
       <div className="day">목요일</div>
-      <div className="tasks-left">할 일 3개 남음</div>
+      <div className="tasks-left">할 일 {remainingTasks}개 남음</div>
     </TodoHeadBlock>
   );
 };
