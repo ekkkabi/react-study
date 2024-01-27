@@ -5,7 +5,7 @@ const InputSample = () => {
     name: "",
     nickname: "",
   });
-  const nameInput = useRef<HTMLInputElement>();
+  const nameInput = useRef<HTMLInputElement | null>(null);
   const { name, nickname } = inputs;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +30,7 @@ const InputSample = () => {
     <div>
       <input name="name" placeholder="이름" onChange={onChange} value={name} />
       <input
+        ref={nameInput}
         name="nickname"
         placeholder="닉네임"
         onChange={onChange}
