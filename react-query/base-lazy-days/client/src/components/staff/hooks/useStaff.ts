@@ -6,7 +6,7 @@ import { filterByTreatment } from '../utils';
 
 import { axiosInstance } from '@/axiosInstance';
 import { queryKeys } from '@/react-query/constants';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 // query function for useQuery
 async function getStaff(): Promise<Staff[]> {
@@ -26,4 +26,12 @@ export function useStaff() {
     const [filter, setFilter] = useState('all');
 
     return { staff, filter, setFilter };
+}
+
+export function usePrefetchTreatments(): void {
+    const queryClient = useQueryClient();
+    queryClient.prefetchQuery({
+        queryKey: [queryKeys.staff],
+        queryFn: getStaff,
+    });
 }

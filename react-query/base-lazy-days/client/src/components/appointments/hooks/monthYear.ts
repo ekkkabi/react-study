@@ -31,8 +31,8 @@ export function getMonthYearDetails(initialDate: dayjs.Dayjs): MonthYear {
 }
 
 export function getNewMonthYear(
-  prevData: MonthYear,
-  monthIncrement: number,
+  prevData: MonthYear,      // 현재 mothyear 상태
+  monthIncrement: number,   // 가져올 다음달
 ): MonthYear {
   // update the monthYear by the specified increment
   const newMonthYear = getUpdatedMonthYear(prevData, monthIncrement);
