@@ -1,10 +1,11 @@
 import { Spinner, Text } from '@chakra-ui/react';
-import { useIsFetching } from '@tanstack/react-query';
+import { useIsFetching, useIsMutating } from '@tanstack/react-query';
 
 export function Loading() {
     // 현재 가져오는 쿼리가 있는지 여부에 따라
     const isFetching = useIsFetching();
-    const display = isFetching ? 'inherit' : 'none';
+    const isMutating = useIsMutating();
+    const display = isFetching || isMutating ? 'inherit' : 'none';
 
     return (
         <Spinner
