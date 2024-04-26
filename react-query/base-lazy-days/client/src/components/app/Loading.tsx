@@ -2,7 +2,7 @@ import { Spinner, Text } from '@chakra-ui/react';
 import { useIsFetching } from '@tanstack/react-query';
 
 export function Loading() {
-    // will use React Query `useIsFetching` to determine whether or not to display
+    // 현재 가져오는 쿼리가 있는지 여부에 따라
     const isFetching = useIsFetching();
     const display = isFetching ? 'inherit' : 'none';
 

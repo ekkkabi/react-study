@@ -2,7 +2,7 @@ import type { Treatment } from '@shared/types';
 
 import { axiosInstance } from '@/axiosInstance';
 import { queryKeys } from '@/react-query/constants';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 // for when we need a query function for useQuery
 // axios 인스턴스와 endpoint가 treatments 인 데이터를 가져옴
@@ -22,4 +22,12 @@ export function useTreatments(): Treatment[] {
         queryFn: getTreatments,
     });
     return data;
+}
+
+export function usePrefetchTreatments(): void {
+    const queryClient = useQueryClient();
+    queryClient.prefetchQuery({
+        queryKey: [queryKeys.treatments],
+        queryFn: getTreatments,
+    });
 }

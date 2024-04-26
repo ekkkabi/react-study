@@ -2,7 +2,7 @@ import { Icon, Stack, Text } from '@chakra-ui/react';
 import { GiFlowerPot } from 'react-icons/gi';
 
 import { BackgroundImage } from '@/components/common/BackgroundImage';
-import { usePrefetchTreatments } from '../staff/hooks/useStaff';
+import { usePrefetchTreatments } from '../treatments/hooks/useTreatments';
 import { usePrefetchAppoointments } from '../appointments/hooks/useAppointments';
 
 export function Home() {

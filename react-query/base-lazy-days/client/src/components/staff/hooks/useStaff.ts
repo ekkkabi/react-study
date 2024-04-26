@@ -28,10 +28,4 @@ export function useStaff() {
     return { staff, filter, setFilter };
 }
 
-export function usePrefetchTreatments(): void {
-    const queryClient = useQueryClient();
-    queryClient.prefetchQuery({
-        queryKey: [queryKeys.staff],
-        queryFn: getStaff,
-    });
-}
+
